@@ -1,0 +1,3 @@
+1. Uztikrina, kad tas pats automobilis nebutu parduotas dviem pirkejam(pridedant nauja pirkeja)
+2. Uztikrina, kad mes(atstovybe) nenupirktume to pacio automobilio dukart
+3. Uztikrina, kad jeigu tai Toyota, ji turi but is nelygines gamyklos(1,3,5), o jeigu Lexus is lygines(2,4,6)(pridedant nauja automobili)
