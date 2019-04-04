@@ -45,3 +45,13 @@ CREATE VIEW anma4475.EuropiniaiAutomobiliai AS
 	SELECT Padalinys, VIN_numeris, Marke, Modelis, Metai, Numatoma_kaina
 	FROM anma4475.Automobilis, anma4475.Gamintojas;
 	WHERE Regionas = 'Europa';
+	
+/* Lentelė, parodanti iš kiekvieno tiekėjo supirktų ir parduotų automobilių pelną ir jų kiekį */
+
+
+/*WITH anma4475.SaskaituPelnas AS (
+	SELECT /*ADD if Parduota, SUB if Pirkta*/ /*AS Pelnas, /**/ /*AS Kiekis
+		FROM anma4475.Saskaita)
+CREATE VIEW anma4475.PelnasNuoTiekeju AS 
+	SELECT Tiekejo_ID, Telefono_numeris, El_pastas, /*Pelnas*//*, /*Kiekis*/
+
