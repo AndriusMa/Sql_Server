@@ -12,7 +12,7 @@ $$
 $$
 LANGUAGE plpgsql;
 
-CREATE TRIGGER automobilisPirktiDviem
+CREATE TRIGGER triggerPirktiDviem
 	BEFORE UPDATE 
 	ON anma4475.Automobilis
 	FOR EACH ROW 
@@ -32,7 +32,7 @@ $$
 $$
 LANGUAGE plpgsql;
 
-CREATE TRIGGER automobilisParduotiDviem
+CREATE TRIGGER triggerParduotiDviem
 	BEFORE UPDATE 
 	ON anma4475.Automobilis
 	FOR EACH ROW 
@@ -43,9 +43,8 @@ CREATE TRIGGER automobilisParduotiDviem
 CREATE FUNCTION numerisToyota() RETURNS "trigger" AS 
 $$
 	BEGIN
-		IF (SELECT COUNT(VIN_numeris) FROM anma4475.Automobilis 
-			WHERE NEW.VIN_numeris = VIN_numeris AND Statusas = 'Parduotas') >= 1
-			THEN RAISE EXCEPTION 'Toks automobilis jau yra parduotas!';
+		IF ((NEW.Marke = 'Toyota') AND NEW.Gamintojas != 1 OR NEW.Gamintojas != 3 OR NEW.Gamintojs != 5)
+			THEN RAISE EXCEPTION 'Gamintojo numeris nesutampa su marke!';
 		END IF;
 		RETURN NEW;
 	END;
@@ -57,4 +56,25 @@ CREATE TRIGGER triggerToyota
 	ON anma4475.Automobilis
 	FOR EACH ROW 
 	EXECUTE PROCEDURE numerisToyota();
+	
+-- Uztikrina, kad jeigu tai Lexus, ji turi but is lygines gamyklos(2,4,6)
+
+CREATE FUNCTION numerisLexus() RETURNS "trigger" AS 
+$$
+	BEGIN
+		IF ((NEW.Marke = 'Toyota') AND NEW.Gamintojas != 2 OR NEW.Gamintojas != 4 OR NEW.Gamintojs != 6)
+			THEN RAISE EXCEPTION 'Gamintojo numeris nesutampa su marke!';
+		END IF;
+		RETURN NEW;
+	END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER triggerLexus
+	BEFORE INSERT OR UPDATE 
+	ON anma4475.Automobilis
+	FOR EACH ROW 
+	EXECUTE PROCEDURE numerisLexus();
+	
+	
 
