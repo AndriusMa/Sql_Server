@@ -33,19 +33,6 @@ INSERT INTO Juridinis	VALUES	(3008, 'UAB Gintauta', '365205781');
 INSERT INTO Juridinis	VALUES	(3010, 'UAB Getala', '350123785');
 INSERT INTO Juridinis	VALUES	(3011, 'UAB Metaka', '350015482');
 
--- Tiekejas
--- Tiekejo_ID, Telefono_numeris, El.pastas
-
-INSERT INTO Tiekejas VALUES	(3006, '+37063692011', 'jonas.s@gmail.com');
-INSERT INTO Tiekejas VALUES	(3007, '+37066952006', 'matas.m@gmail.com');
-INSERT INTO Tiekejas VALUES	(3008, '+37060254789', 'rysiai@gintauta.lt');
-INSERT INTO Tiekejas VALUES	(3009, '+37063024985', 'kristupas.ka@yahoo.com');
-INSERT INTO Tiekejas VALUES	(3010, '+37060146548', 'administracija@getala.lt');
-INSERT INTO Tiekejas VALUES	(3011, '+37062546845', 'info@metaka.lt');
-
-
--- Pirkejai
--- Pirkejo_ID, Vardas, Pavarde, Konsultantas, Asmens_kodas
 
 INSERT INTO Pirkejas VALUES	(3000, 'Gintaras', 'Gudavicius', 101, '39301045422');
 INSERT INTO Pirkejas VALUES	(3001, 'Jonas', 'Katauskis', 103, '35910286298');
@@ -92,23 +79,23 @@ INSERT INTO Automobilis VALUES   ('Toyota', 'C-HR', 2020, 3, 23030, 'Sandelyje',
 INSERT INTO Automobilis VALUES	('Lexus', 'RX200t', 2017, 4, 49530, 'Sandelyje', 'JRXAW68G369021103' );
 
 -- Saskaitos
--- Saskaitos_ID, Klientas, VIN_numeris, Kaina, Tipas, Mokejimas, Israsymo_data
+-- Saskaitos_ID, Saskaitos_klientas, Pirkejo_ID, Fizinio_ID, Juridinio_ID, VIN_numeris, Kaina, Tipas, Mokejimas, Israsymo_data
 
-INSERT INTO Saskaita VALUES	(1000, 3000, 'JGCBC11A202523424', 63000, 'Parduotas', 'Lizingas', '2018-03-21');
-INSERT INTO Saskaita VALUES	(1001, 3001, 'JAQBC11A318492434', 53390, 'Parduotas', 'Lizingas', '2017-07-25');
-INSERT INTO Saskaita VALUES	(1002, 3002, 'JLRAA34A894456354', 123000, 'Parduotas', 'Pilnas', '2018-04-02');
-INSERT INTO Saskaita VALUES	(1003, 3003, 'JASBC68A214835276', 39350, 'Parduotas', 'Lizingas', '2018-10-12');
-INSERT INTO Saskaita VALUES	(1004, 3004, 'JAWBH24A876354298', 28030, 'Parduotas', 'Pilnas', '2018-12-15');
-INSERT INTO Saskaita VALUES	(1005, 3005, 'JRXBC45A254830711', 58360, 'Parduotas', 'Pilnas', '2019-01-07');
-INSERT INTO Saskaita VALUES	(1006, 3006, 'JLSBC98A544321654', 9800, 'Nupirktas', 'Pilnas', '2018-10-19');
-INSERT INTO Saskaita VALUES	(1007, 3007, 'JGSBC11A321987521', 7300, 'Nupirktas', 'Pilnas', '2018-12-30');
-INSERT INTO Saskaita VALUES	(1008, 3007, 'JCCBC11G258755113', 10500, 'Nupirktas', 'Pilnas', '2019-02-15');
-INSERT INTO Saskaita VALUES	(1009, 3008, 'JRABC66G359001472', 9850, 'Nupirktas', 'Pilnas', '2019-03-17');
-INSERT INTO Saskaita VALUES	(1010, 3008, 'JLSGS34C213548965', 13500, 'Nupirktas', 'Pilnas', '2017-01-12');
-INSERT INTO Saskaita VALUES	(1011, 3009, 'JGCAC98A218463058', 10300, 'Nupirktas', 'Pilnas', '2017-09-07');
-INSERT INTO Saskaita VALUES	(1012, 3010, 'JSABC68G215800311', 15960, 'Nupirktas', 'Pilnas', '2018-02-01');
-INSERT INTO Saskaita VALUES	(1013, 3011, 'JLCBC66D258003155', 16450, 'Nupirktas', 'Pilnas', '2017-12-15');
-INSERT INTO Saskaita VALUES	(1014, 3011, 'JRXAW68G369021103', 46830, 'Nupirktas', 'Pilnas', '2017-01-02');
+INSERT INTO Saskaita VALUES	(1000, 'Pirkejas', 3000, NULL, NULL, 'JGCBC11A202523424', 63000, 'Parduotas', 'Lizingas', '2018-03-21');
+INSERT INTO Saskaita VALUES	(1001, 'Pirkejas', 3001, NULL, NULL, 'JAQBC11A318492434', 53390, 'Parduotas', 'Lizingas', '2017-07-25');
+INSERT INTO Saskaita VALUES	(1002, 'Pirkejas', 3002, NULL, NULL, 'JLRAA34A894456354', 123000, 'Parduotas', 'Pilnas', '2018-04-02');
+INSERT INTO Saskaita VALUES	(1003, 'Pirkejas', 3003, NULL, NULL, 'JASBC68A214835276', 39350, 'Parduotas', 'Lizingas', '2018-10-12');
+INSERT INTO Saskaita VALUES	(1004, 'Pirkejas', 3004, NULL, NULL, 'JAWBH24A876354298', 28030, 'Parduotas', 'Pilnas', '2018-12-15');
+INSERT INTO Saskaita VALUES	(1005, 'Pirkejas', 3005, NULL, NULL, 'JRXBC45A254830711', 58360, 'Parduotas', 'Pilnas', '2019-01-07');
+INSERT INTO Saskaita VALUES	(1006, 'Fizinis', NULL, 3006, NULL, 'JLSBC98A544321654', 9800, 'Nupirktas', 'Pilnas', '2018-10-19');
+INSERT INTO Saskaita VALUES	(1007, 'Fizinis',  NULL, 3007, NULL, 'JGSBC11A321987521', 7300, 'Nupirktas', 'Pilnas', '2018-12-30');
+INSERT INTO Saskaita VALUES	(1008, 'Fizinis', NULL, 3007, NULL, 'JCCBC11G258755113', 10500, 'Nupirktas', 'Pilnas', '2019-02-15');
+INSERT INTO Saskaita VALUES	(1009, 'Juridinis', NULL, NULL, 3008, 'JRABC66G359001472', 9850, 'Nupirktas', 'Pilnas', '2019-03-17');
+INSERT INTO Saskaita VALUES	(1010, 'Juridinis', NULL, NULL, 3008, 'JLSGS34C213548965', 13500, 'Nupirktas', 'Pilnas', '2017-01-12');
+INSERT INTO Saskaita VALUES	(1011, 'Fizinis', NULL, 3009, NULL, 'JGCAC98A218463058', 10300, 'Nupirktas', 'Pilnas', '2017-09-07');
+INSERT INTO Saskaita VALUES	(1012, 'Juridinis', NULL, NULL, 3010, 'JSABC68G215800311', 15960, 'Nupirktas', 'Pilnas', '2018-02-01');
+INSERT INTO Saskaita VALUES	(1013, 'Juridinis', NULL, NULL, 3011, 'JLCBC66D258003155', 16450, 'Nupirktas', 'Pilnas', '2017-12-15');
+INSERT INTO Saskaita VALUES	(1014, 'Juridinis', NULL, NULL, 3011, 'JRXAW68G369021103', 46830, 'Nupirktas', 'Pilnas', '2017-01-02');
 
 
 -- Mokejimas

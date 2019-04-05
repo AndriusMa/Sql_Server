@@ -62,7 +62,7 @@ CREATE TRIGGER triggerToyota
 CREATE FUNCTION numerisLexus() RETURNS "trigger" AS 
 $$
 	BEGIN
-		IF ((NEW.Marke = 'Toyota') AND NEW.Gamintojas != 2 OR NEW.Gamintojas != 4 OR NEW.Gamintojs != 6)
+		IF ((NEW.Marke = 'Lexus') AND NEW.Gamintojas != 2 OR NEW.Gamintojas != 4 OR NEW.Gamintojs != 6)
 			THEN RAISE EXCEPTION 'Gamintojo numeris nesutampa su marke!';
 		END IF;
 		RETURN NEW;

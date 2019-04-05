@@ -19,21 +19,21 @@ CREATE TABLE anma4475.Darbuotojas
 
 CREATE TABLE anma4475.Fizinis
 (
-	 Tiekejo_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
+	 Fizinis_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
     Vardas			VARCHAR(25)			NOT NULL,
     Pavarde			VARCHAR(25)			NOT NULL,
     Asmens_kodas	VARCHAR(25)			NOT NULL,
     
-    PRIMARY KEY		(Tiekejo_ID)
+    PRIMARY KEY		(Fizinis_ID)
 );
 
 CREATE TABLE anma4475.Juridinis
 (
-	 Tiekejo_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
-    Imone			VARCHAR(30)			NOT NULL,
-    Imones_kodas	VARCHAR(25)			NOT NULL,
+	 Juridinis_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
+    Imone				VARCHAR(30)			NOT NULL,
+    Imones_kodas		VARCHAR(25)			NOT NULL,
     
-    PRIMARY KEY		(Tiekejo_ID)
+    PRIMARY KEY		(Juridinis_ID)
 );
 
 
@@ -63,32 +63,26 @@ CREATE TABLE anma4475.Automobilis
     FOREIGN KEY  (Gamintojas) REFERENCES anma4475.Gamintojas ON DELETE CASCADE 
 );
 
-CREATE TABLE anma4475.Tiekejas
-(
-    Tiekejo_ID			INT				NOT NULL,
-    Telefono_numeris	VARCHAR(15)		NOT NULL,
-    El_pastas			VARCHAR(40)		NOT NULL,
-    
-    PRIMARY KEY		(Tiekejo_ID),
-    FOREIGN KEY		(Tiekejo_ID)		REFERENCES anma4475.Fizinis		ON DELETE CASCADE,
-    FOREIGN KEY		(Tiekejo_ID)		REFERENCES anma4475.Juridinis		ON DELETE CASCADE
-);
 
-
+CREATE TYPE	saskaitosEnum	AS ENUM ('Pirkejas', 'Fizinis', 'Juridinis');
 CREATE TABLE anma4475.Saskaita
 (
-	 Saskaitos_ID		INT				NOT NULL,
-	 Klientas			INT				NOT NULL,
-	 VIN_numeris		VARCHAR(20)		NOT NULL,
-	 Kaina				INT				NOT NULL		CHECK(Kaina < 170000),
-	 Tipas				VARCHAR(20)		NOT NULL,
-	 Mokejimas			VARCHAR(20)		NOT NULL		CHECK(Mokejimas = 'Pilnas' OR Mokejimas = 'Lizingas') DEFAULT 'Lizingas',
-	 Israsymo_data		DATE				NOT NULL,
+	 Saskaitos_ID			INT				NOT NULL,
+	 SaskaitosKlientas	saskaitosEnum	NOT NULL,
+	 Pirkejo_ID				INT,
+	 Fizinio_ID				INT,
+	 Juridinio_ID			INT,
+	 VIN_numeris			VARCHAR(20)		NOT NULL,
+	 Kaina					INT				NOT NULL		CHECK(Kaina < 170000),
+	 Tipas					VARCHAR(20)		NOT NULL,
+	 Mokejimas				VARCHAR(20)		NOT NULL		CHECK(Mokejimas = 'Pilnas' OR Mokejimas = 'Lizingas') DEFAULT 'Lizingas',
+	 Israsymo_data			DATE				NOT NULL,
 	
 	 PRIMARY KEY (Saskaitos_ID),
 	 FOREIGN KEY (VIN_numeris) REFERENCES anma4475.Automobilis	ON DELETE CASCADE,
-	 FOREIGN KEY (Klientas) REFERENCES anma4475.Pirkejas	ON DELETE CASCADE,
-	 FOREIGN KEY (Klientas) REFERENCES anma4475.Tiekejas	ON DELETE CASCADE
+	 FOREIGN KEY (Pirkejo_ID) REFERENCES anma4475.Pirkejas	ON DELETE CASCADE,
+	 FOREIGN KEY (Fizinio_ID) REFERENCES anma4475.Fizinis	ON DELETE CASCADE,
+	 FOREIGN KEY (Juridinio_ID) REFERENCES anma4475.Juridinis	ON DELETE CASCADE
 );
 
 CREATE TABLE anma4475.Mokejimas
