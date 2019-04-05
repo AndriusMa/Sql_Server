@@ -1,7 +1,7 @@
-DROP VIEW anma4475.AutomobiliaiIssimoketinai;
-DROP VIEW anma4475.PirkejoKonsultantas;
-DROP VIEW anma4475.TurimiAutomobiliai;
-DROP VIEW anma4475.PrabangusTurimiAutomobiliai;
-DROP VIEW anma4475.Partneriai;
-DROP VIEW anma4475.EuropiniaiAutomobiliai;
-DROP VIEW anma4475.ParduotiAutomobiliai;
+DROP VIEW aupe4289.AutomobiliaiIssimoketinai;
+DROP MATERIALIZED VIEW aupe4289.PirkejoKonsultantas;
+DROP VIEW aupe4289.TurimiAutomobiliai;
+DROP VIEW aupe4289.PrabangusTurimiAutomobiliai;
+DROP MATERIALIZED VIEW aupe4289.Partneriai;
+DROP VIEW aupe4289.EuropiniaiAutomobiliai;
+DROP VIEW aupe4289.ParduotiAutomobiliai;
