@@ -1,5 +1,5 @@
-DROP TRIGGER triggerPirktiDviem ON anma4475.Automobilis;
-DROP FUNCTION neleistiPirktiDviem();
+DROP TRIGGER triggerMokejimas ON anma4475.Mokejimas;
+DROP FUNCTION neleistiMoketi();
 
 DROP TRIGGER triggerParduotiDviem ON anma4475.Automobilis;
 DROP FUNCTION neleistiParduotiDviem();
