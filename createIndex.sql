@@ -1,4 +1,4 @@
-CREATE INDEX        Darbuotojui      ON juva9765.Darbuotojas(Vardas, Pavarde);
-CREATE UNIQUE INDEX KlientuiTelNr    ON juva9765.Klientas(Tel_Nr);
-CREATE UNIQUE INDEX KomandaiKlientas ON juva9765.Komanda(Kliento_AK);
-CREATE UNIQUE INDEX KomandaiPav      ON juva9765.Komanda(Pavadinimas);
+CREATE INDEX		Pirkejui      ON anma4475.Pirkejas(Vardas, Pavarde);
+CREATE INDEX		Darbuotojui    ON anma4475.Darbuotojas(Vardas, Pavarde);
+CREATE UNIQUE INDEX Mokejimams    ON anma4475.Mokejimai(Saskaita, Mokejimo_numeris);
+CREATE UNIQUE INDEX Automobiliui ON anma4475.Automobilis(VIN_numeris);

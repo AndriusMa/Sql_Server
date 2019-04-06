@@ -19,35 +19,37 @@ CREATE TABLE anma4475.Darbuotojas
 
 CREATE TABLE anma4475.Fizinis
 (
-	 Fizinis_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
+	 Fizinio_ID		SERIAL				NOT NULL,
     Vardas			VARCHAR(25)			NOT NULL,
     Pavarde			VARCHAR(25)			NOT NULL,
     Asmens_kodas	VARCHAR(25)			NOT NULL,
     
-    PRIMARY KEY		(Fizinis_ID)
+    PRIMARY KEY		(Fizinio_ID)
 );
+ALTER SEQUENCE anma4475.Fizinis_Fizinio_id_seq RESTART WITH 5000 INCREMENT BY 1;
 
 CREATE TABLE anma4475.Juridinis
 (
-	 Juridinis_ID		INT					NOT NULL,		--CHECK(Tiekejo_ID >=4000),
+	 Juridinio_ID		SERIAL				NOT NULL,
     Imone				VARCHAR(30)			NOT NULL,
     Imones_kodas		VARCHAR(25)			NOT NULL,
     
-    PRIMARY KEY		(Juridinis_ID)
+    PRIMARY KEY		(Juridinio_ID)
 );
+ALTER SEQUENCE anma4475.Juridinis_Juridinio_id_seq RESTART WITH 4000 INCREMENT BY 1;
 
 
 CREATE TABLE anma4475.Pirkejas
 (
-	 Pirkejo_ID		INT					NOT NULL,		--CHECK(Pirkejo_ID >=3000),
-    Vardas			VARCHAR(25)			NOT NULL,
-    Pavarde			VARCHAR(25)			NOT NULL,
-    Konsultantas	SMALLINT				NOT NULL,
-    Asmens_kodas	VARCHAR(25)			NOT NULL,
+	 Pirkejo_ID		SERIAL					NOT NULL,
+    Vardas			VARCHAR(25)				NOT NULL,
+    Pavarde			VARCHAR(25)				NOT NULL,
+    Konsultantas	SMALLINT					NOT NULL,
+    Asmens_kodas	VARCHAR(25)				NOT NULL,
    
     PRIMARY KEY		(Pirkejo_ID)
 );
-
+ALTER SEQUENCE anma4475.Pirkejas_Pirkejo_id_seq RESTART WITH 3000 INCREMENT BY 1;
 
 CREATE TABLE anma4475.Automobilis 
 ( 

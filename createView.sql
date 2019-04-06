@@ -17,7 +17,8 @@ CREATE MATERIALIZED VIEW anma4475.PirkejoKonsultantas AS
 	SELECT A.Vardas AS "Pirkejo vardas", A.Pavarde AS "Pirkejo pavarde",
 		B.Vardas AS "Konsultanto vardas", B.Pavarde AS "Konsultanto pavarde"
 	FROM Pirkejas A, Darbuotojas B
-	WHERE A.Konsultantas = B.Darbuotojo_ID;
+	WHERE A.Konsultantas = B.Darbuotojo_ID
+	REFRESH IMMEDIATE;
 	
 /* Lentelė, pateikianti visus automobilius, kurie šiuo metu yra sandėlyje */
 	
@@ -37,7 +38,8 @@ CREATE VIEW anma4475.PrabangusTurimiAutomobiliai AS
 	
 CREATE MATERIALIZED VIEW anma4475.Partneriai AS
 	SELECT DISTINCT (Imone)
-	FROM anma4475.Juridinis;
+	FROM anma4475.Juridinis
+	REFRESH IMMEDIATE;
 	
 /* Lentelė, parodanti visus automobilius, esančius šiuo metu sandėlyje ir surinktus Europoje */
 	
